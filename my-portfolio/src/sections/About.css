@@ -76,8 +76,8 @@
 }
 
 @media (max-width: 768px) {
-  .about { padding: 80px 28px; }
-  .about-inner { grid-template-columns: 1fr; gap: 48px; }
+  .about { padding: 92px 28px 48px; align-items: flex-start; }
+  .about-inner { grid-template-columns: 1fr; gap: 40px; }
 }
 
 .about-edu {

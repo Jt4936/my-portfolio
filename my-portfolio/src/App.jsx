@@ -72,30 +72,45 @@ export default function App() {
     return ()=>container.removeEventListener('wheel', onWheel)
   },[isMobile])
 
-  // ── Mobile: let touch scroll naturally, but trigger the same effects as
-  //    each section passes the viewport centre ──
+  // ── Mobile: PPT-style paging. One swipe = advance one full section (with the
+  //    same 3D dive + flash). Sections taller than the screen scroll internally
+  //    first; only a swipe past the top/bottom edge flips to the next section. ──
   useEffect(()=>{
     if(!isMobile) return
     const container = containerRef.current
     if(!container) return
-    let ticking = false
-    const onScroll = () => {
-      if(ticking || isScrolling.current) return
-      ticking = true
-      requestAnimationFrame(() => {
-        ticking = false
-        const sections = container.querySelectorAll('section')
-        const centerY = container.getBoundingClientRect().top + container.clientHeight / 2
-        let idx = 0
-        for(let i=0; i<sections.length; i++){
-          const r = sections[i].getBoundingClientRect()
-          if(r.top <= centerY && r.bottom > centerY){ idx = i; break }
-        }
-        activate(idx)
-      })
+
+    let startY = null
+    const onStart = (e) => { startY = e.touches[0]?.clientY ?? null }
+    const onEnd = (e) => {
+      if(startY == null) return
+      const dy = startY - (e.changedTouches[0]?.clientY ?? startY)
+      startY = null
+      if(isScrolling.current) return
+      if(Math.abs(dy) < 45) return   // ignore taps / tiny drags
+
+      // If the current section still has content to scroll in the swipe
+      // direction, let that native scroll happen instead of paging.
+      const sec = container.querySelectorAll('section')[currentPage.current]
+      if(sec){
+        const atTop    = sec.scrollTop <= 4
+        const atBottom = sec.scrollTop + sec.clientHeight >= sec.scrollHeight - 4
+        if(dy > 0 && !atBottom) return
+        if(dy < 0 && !atTop) return
+      }
+
+      const next = dy > 0
+        ? Math.min(currentPage.current + 1, SECTIONS.length - 1)
+        : Math.max(currentPage.current - 1, 0)
+      if(next === currentPage.current) return
+      goTo(next)
     }
-    container.addEventListener('scroll', onScroll, {passive:true})
-    return ()=>container.removeEventListener('scroll', onScroll)
+    container.addEventListener('touchstart', onStart, {passive:true})
+    container.addEventListener('touchend', onEnd, {passive:true})
+    return ()=>{
+      container.removeEventListener('touchstart', onStart)
+      container.removeEventListener('touchend', onEnd)
+    }
   },[isMobile])
 
   const goTo=(idx)=>{
@@ -104,10 +119,15 @@ export default function App() {
 
     // Scroll content into view
     if(isMobile){
-      // Guard the scroll listener so it doesn't fly through intermediate sections
+      // Lock paging until the transition settles
       isScrolling.current = true
-      setTimeout(()=>{ isScrolling.current = false }, 1000)
-      document.getElementById(SECTIONS[idx])?.scrollIntoView({ behavior:'smooth' })
+      setTimeout(()=>{ isScrolling.current = false }, 1100)
+      const container = containerRef.current
+      const el = document.getElementById(SECTIONS[idx])
+      if(container && el){
+        el.scrollTop = 0                       // start the incoming section at its top
+        container.scrollTo({ top: el.offsetTop, behavior:'smooth' })
+      }
     } else {
       setTimeout(()=>{
         containerRef.current?.scrollTo({ top: idx*window.innerHeight, behavior:'smooth' })
