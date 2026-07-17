@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useLang } from '../i18n'
 import './Hero.css'
 
 export default function Hero() {
+  const { t } = useLang()
   return (
     <section id="hero" className="hero">
       <div className="hero-inner">
@@ -12,7 +13,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.7 }}
         >
-          // Frontend Developer & Creative Coder
+          {t.hero.tag}
         </motion.div>
 
         <div className="hero-name-wrap">
@@ -36,7 +37,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.7 }}
         >
-          I craft immersive web experiences that live at the intersection of code and visual design.
+          {t.hero.sub}
         </motion.p>
 
         <motion.div
@@ -49,13 +50,13 @@ export default function Hero() {
             className="btn-primary"
             onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            View My Work
+            {t.hero.viewWork}
           </button>
           <button
             className="btn-ghost"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Get In Touch
+            {t.hero.getInTouch}
           </button>
         </motion.div>
 
@@ -66,7 +67,7 @@ export default function Hero() {
           transition={{ delay: 1.5 }}
         >
           <div className="scroll-line" />
-          <span>Scroll to explore</span>
+          <span>{t.hero.scroll}</span>
         </motion.div>
       </div>
 
@@ -76,7 +77,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
       >
-        01 / 05 — Home
+        {t.hero.counter}
       </motion.div>
     </section>
   )

@@ -1,8 +1,10 @@
 import { useRef, useEffect, useState } from 'react'
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useLang } from '../i18n'
 import './Contact.css'
 
 export default function Contact({ isActive }) {
+  const { t } = useLang()
   const ref = useRef(null)
   const [landed, setLanded] = useState(false)
   const [showContent, setShowContent] = useState(false)
@@ -63,14 +65,13 @@ export default function Contact({ isActive }) {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="contact-left">
-              <div className="section-tag">// Get In Touch</div>
+              <div className="section-tag">{t.contact.tag}</div>
               <h2 className="contact-title">
-                Let's Build<br/>
-                <span>Something Together</span>
+                {t.contact.titleLine1}<br/>
+                <span>{t.contact.titleLine2}</span>
               </h2>
               <p className="contact-sub">
-                I'm currently open to new opportunities. Whether you have
-                a project in mind or just want to say hello — reach out anytime.
+                {t.contact.sub}
               </p>
               <div className="contact-details">
                 <a href="mailto:hujintao12@126.com" className="contact-email">
@@ -99,7 +100,7 @@ export default function Contact({ isActive }) {
           transition={{ delay: 0.4, duration: 0.6 }}
         >
           <span>© 2024 Jintao Hu</span>
-          <span>Built with React + Three.js</span>
+          <span>{t.contact.footerBuilt}</span>
         </motion.div>
       )}
     </section>

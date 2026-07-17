@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import CustomCursor from '../components/CustomCursor'
+import LangToggle from '../components/LangToggle'
+import { useLang } from '../i18n'
 import './Projects.css'
 
 const categories = ['All', 'UTS Projects', 'Personal Projects', 'Frontend', 'Game']
@@ -23,6 +25,8 @@ const projects = [
 const CARDS_PER_PAGE = 6
 
 export default function Projects() {
+  const { t, lang } = useLang()
+  const projText = (p) => (lang === 'zh' && t.projects.items?.[p.id]) || p
   const [filter, setFilter] = useState('All')
   const [selected, setSelected] = useState(null)
   const [imgIdx, setImgIdx] = useState(0)
@@ -82,8 +86,9 @@ export default function Projects() {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Back
+          {t.projects.back}
         </button>
+        <LangToggle />
       </div>
 
       {/* Fullpage scroll container — hide scrollbar */}
@@ -94,13 +99,13 @@ export default function Projects() {
             {/* Header only on first page */}
             {pi === 0 && (
               <div className="projects-header">
-                <div className="section-tag">// Selected Work</div>
-                <h1 className="projects-title">All Projects</h1>
-                <p className="projects-sub">UI/UX Design & iOS Development · 2025–2026</p>
+                <div className="section-tag">{t.projects.tag}</div>
+                <h1 className="projects-title">{t.projects.title}</h1>
+                <p className="projects-sub">{t.projects.sub}</p>
                 {/* Filters right under title */}
                 <div className="filter-row">
                   {categories.map(c => (
-                    <button key={c} className={`filter-btn ${filter===c?'active':''}`} onClick={()=>setFilter(c)}>{c}</button>
+                    <button key={c} className={`filter-btn ${filter===c?'active':''}`} onClick={()=>setFilter(c)}>{t.projects.categories[c]}</button>
                   ))}
                 </div>
               </div>
@@ -124,18 +129,18 @@ export default function Projects() {
                           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                             <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                           </svg>
-                          <span>Code</span>
+                          <span>{t.projects.code}</span>
                         </div>
                     }
-                    <div className="card-overlay"><span>View →</span></div>
+                    <div className="card-overlay"><span>{t.projects.view}</span></div>
                   </div>
                   <div className="card-body">
                     <div className="card-meta">
                       <span className="card-year">{p.year}</span>
-                      <span className="card-cat">{p.category}</span>
+                      <span className="card-cat">{t.projects.categories[p.category]}</span>
                     </div>
                     <h3 className="card-title">{p.title}</h3>
-                    <p className="card-subtitle">{p.subtitle}</p>
+                    <p className="card-subtitle">{projText(p).subtitle}</p>
                   </div>
                 </motion.div>
               ))}
@@ -197,20 +202,20 @@ export default function Projects() {
               )}
               <div className="modal-body">
                 <div className="modal-meta">
-                  <span className="card-cat">{selected.category}</span>
+                  <span className="card-cat">{t.projects.categories[selected.category]}</span>
                   <span className="card-year">{selected.year}</span>
                   <span className="card-year">{selected.role}</span>
                 </div>
                 <h2 className="modal-title">{selected.title}</h2>
-                <p className="modal-subtitle">{selected.subtitle}</p>
-                <p className="modal-desc">{selected.desc}</p>
+                <p className="modal-subtitle">{projText(selected).subtitle}</p>
+                <p className="modal-desc">{projText(selected).desc}</p>
                 <div className="card-tags" style={{marginBottom:'20px'}}>
                   {selected.tags.map(t=><span key={t} className="card-tag">{t}</span>)}
                 </div>
                 {(selected.links.github||selected.links.demo) && (
                   <div className="modal-links">
-                    {selected.links.github && <a href={selected.links.github} target="_blank" rel="noreferrer" className="modal-link">GitHub →</a>}
-                    {selected.links.demo   && <a href={selected.links.demo}   target="_blank" rel="noreferrer" className="modal-link accent">View Demo →</a>}
+                    {selected.links.github && <a href={selected.links.github} target="_blank" rel="noreferrer" className="modal-link">{t.projects.github}</a>}
+                    {selected.links.demo   && <a href={selected.links.demo}   target="_blank" rel="noreferrer" className="modal-link accent">{t.projects.demo}</a>}
                   </div>
                 )}
               </div>

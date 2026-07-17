@@ -29,6 +29,12 @@
 .nav-logo span { color: #c8f04a; }
 .nav-logo:hover { color: #c8f04a; }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
 .nav-links {
   display: flex;
   gap: 32px;

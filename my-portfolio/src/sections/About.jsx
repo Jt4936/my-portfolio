@@ -1,15 +1,11 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useLang } from '../i18n'
 import './About.css'
 
-const stats = [
-  { num: 'UTS', label: 'Master of IT\nInteractive Design' },
-  { num: '4+', label: 'Years of Design\nExperience' },
-  { num: '8+', label: 'Projects\nCompleted' },
-  { num: '2026', label: 'Graduated\nMay 2026' },
-]
-
 export default function About() {
+  const { t } = useLang()
+  const stats = t.about.stats
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
@@ -20,42 +16,36 @@ export default function About() {
           <motion.div className="section-tag"
             animate={inView?{opacity:1,y:0}:{opacity:0,y:20}}
             transition={{duration:0.6}}>
-            // About Me
+            {t.about.tag}
           </motion.div>
 
           <motion.h2 className="about-title"
             animate={inView?{opacity:1,y:0}:{opacity:0,y:30}}
             transition={{duration:0.7,delay:0.1}}>
-            Design meets<br/><span>Technology</span>
+            {t.about.titleLine1}<br/><span>{t.about.titleLine2}</span>
           </motion.h2>
 
           <motion.p className="about-body"
             animate={inView?{opacity:1,y:0}:{opacity:0,y:20}}
             transition={{duration:0.7,delay:0.2}}>
-            Hi, I'm Jintao — a freshly graduated Master of Information Technology (Interactive Design) from UTS Sydney, Class of May 2026. My journey spans from Computer Science foundations at UC Santa Cruz to specialising in UX/UI design and front-end development.
+            {t.about.body1}
           </motion.p>
 
           <motion.p className="about-body"
             animate={inView?{opacity:1,y:0}:{opacity:0,y:20}}
             transition={{duration:0.7,delay:0.3}}>
-            I bridge the gap between design thinking and technical implementation — crafting high-fidelity prototypes in Figma, building interactive web experiences, and developing games in Unity and Unreal Engine 5. I'm passionate about creating digital experiences that feel both intuitive and visually striking.
+            {t.about.body2}
           </motion.p>
 
           <motion.div className="about-edu"
             animate={inView?{opacity:1,y:0}:{opacity:0,y:20}}
             transition={{duration:0.7,delay:0.4}}>
-            <div className="edu-item">
-              <span className="edu-degree">Master of IT · Interactive Design</span>
-              <span className="edu-school">University of Technology Sydney · 2026</span>
-            </div>
-            <div className="edu-item">
-              <span className="edu-degree">Bachelor of IT · Interactive Design</span>
-              <span className="edu-school">University of Technology Sydney · 2024</span>
-            </div>
-            <div className="edu-item">
-              <span className="edu-degree">Computer Science</span>
-              <span className="edu-school">UC Santa Cruz · 2019–2020</span>
-            </div>
+            {t.about.edu.map((e) => (
+              <div className="edu-item" key={e.degree}>
+                <span className="edu-degree">{e.degree}</span>
+                <span className="edu-school">{e.school}</span>
+              </div>
+            ))}
           </motion.div>
         </div>
 
