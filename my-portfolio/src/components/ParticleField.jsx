@@ -273,8 +273,11 @@ const ParticleField = forwardRef(function ParticleField(_, ref) {
     // ── MOUSE ─────────────────────────────────────
     let mouse={x:0,y:0}
     const onMouseMove=e=>{mouse.x=(e.clientX/window.innerWidth-.5)*2;mouse.y=-(e.clientY/window.innerHeight-.5)*2}
+    const onTouchMove=e=>{const t=e.touches[0];if(!t)return;mouse.x=(t.clientX/window.innerWidth-.5)*2;mouse.y=-(t.clientY/window.innerHeight-.5)*2}
     const onResize=()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight)}
     window.addEventListener('mousemove',onMouseMove)
+    window.addEventListener('touchmove',onTouchMove,{passive:true})
+    window.addEventListener('touchstart',onTouchMove,{passive:true})
     window.addEventListener('resize',onResize)
 
     // ── ANIMATE ───────────────────────────────────
@@ -359,6 +362,8 @@ const ParticleField = forwardRef(function ParticleField(_, ref) {
 
     return ()=>{
       window.removeEventListener('mousemove',onMouseMove)
+      window.removeEventListener('touchmove',onTouchMove)
+      window.removeEventListener('touchstart',onTouchMove)
       window.removeEventListener('resize',onResize)
       cancelAnimationFrame(animId)
       renderer.dispose()

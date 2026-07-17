@@ -128,6 +128,10 @@
 }
 
 @media (max-width: 768px) {
-  .hero { padding: 0 28px; }
+  .hero { padding: 96px 24px 0; align-items: center; }
   .hero-name { font-size: clamp(52px, 16vw, 80px); }
+  .hero-sub { font-size: 13px; max-width: 100%; }
+  .hero-cta { flex-wrap: wrap; margin-top: 32px; }
+  .hero-scroll-hint { margin-top: 48px; }
+  .hero-counter { display: none; }
 }

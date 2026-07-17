@@ -16,18 +16,46 @@ const FLASH_COLORS = ['','#9955ff','#4488ff','#44ddff','#ffffff']
 
 export default function App() {
   const [activePage, setActivePage]   = useState(0)
+  const [isMobile, setIsMobile]       = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+  )
 
   useEffect(() => {
     document.body.classList.add("fullpage-mode")
     return () => document.body.classList.remove("fullpage-mode")
   }, [])
+
+  // Track viewport so we can switch between desktop wheel-snap and mobile touch-scroll
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)')
+    const onChange = () => setIsMobile(mq.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
   const [flashColor, setFlashColor]   = useState(null)
   const containerRef = useRef(null)
   const particleRef  = useRef(null)
   const isScrolling  = useRef(false)
   const currentPage  = useRef(0)
 
+  // Fire the 3D camera dive + colour flash for a section change (shared by wheel & touch)
+  const activate = (idx) => {
+    const prev = currentPage.current
+    if (idx === prev) return
+    currentPage.current = idx
+    setActivePage(idx)
+    if (particleRef.current) particleRef.current.flyTo(idx, prev)
+    const color = FLASH_COLORS[idx]
+    if (color) {
+      setFlashColor(color)
+      setTimeout(() => setFlashColor(null), 700)
+    }
+  }
+
+  // ── Desktop: hijack the wheel for full-page snap navigation ──
   useEffect(()=>{
+    if(isMobile) return
     const container = containerRef.current
     if(!container) return
     const onWheel=(e)=>{
@@ -42,28 +70,49 @@ export default function App() {
     }
     container.addEventListener('wheel', onWheel, {passive:false})
     return ()=>container.removeEventListener('wheel', onWheel)
-  },[])
+  },[isMobile])
+
+  // ── Mobile: let touch scroll naturally, but trigger the same effects as
+  //    each section passes the viewport centre ──
+  useEffect(()=>{
+    if(!isMobile) return
+    const container = containerRef.current
+    if(!container) return
+    let ticking = false
+    const onScroll = () => {
+      if(ticking || isScrolling.current) return
+      ticking = true
+      requestAnimationFrame(() => {
+        ticking = false
+        const sections = container.querySelectorAll('section')
+        const centerY = container.getBoundingClientRect().top + container.clientHeight / 2
+        let idx = 0
+        for(let i=0; i<sections.length; i++){
+          const r = sections[i].getBoundingClientRect()
+          if(r.top <= centerY && r.bottom > centerY){ idx = i; break }
+        }
+        activate(idx)
+      })
+    }
+    container.addEventListener('scroll', onScroll, {passive:true})
+    return ()=>container.removeEventListener('scroll', onScroll)
+  },[isMobile])
 
   const goTo=(idx)=>{
-    const prev = currentPage.current
-    if(idx===prev) return
-    currentPage.current=idx
-    setActivePage(idx)
+    // Trigger 3D camera flight + flash overlay
+    activate(idx)
 
-    // Trigger 3D camera flight
-    if(particleRef.current) particleRef.current.flyTo(idx, prev)
-
-    // Flash overlay
-    const color = FLASH_COLORS[idx]
-    if(color){
-      setFlashColor(color)
-      setTimeout(()=>setFlashColor(null), 700)
+    // Scroll content into view
+    if(isMobile){
+      // Guard the scroll listener so it doesn't fly through intermediate sections
+      isScrolling.current = true
+      setTimeout(()=>{ isScrolling.current = false }, 1000)
+      document.getElementById(SECTIONS[idx])?.scrollIntoView({ behavior:'smooth' })
+    } else {
+      setTimeout(()=>{
+        containerRef.current?.scrollTo({ top: idx*window.innerHeight, behavior:'smooth' })
+      }, idx===4 ? 500 : 80)
     }
-
-    // Scroll content
-    setTimeout(()=>{
-      containerRef.current?.scrollTo({ top: idx*window.innerHeight, behavior:'smooth' })
-    }, idx===4 ? 500 : 80)
   }
 
   return (

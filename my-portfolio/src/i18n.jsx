@@ -8,7 +8,7 @@ const translations = {
     langLabel: 'EN',
     nav: { about: '关于', work: '作品', skills: '技能', contact: '联系' },
     hero: {
-      tag: '// 前端开发者 & 创意程序员',
+      tag: '// 游戏开发者 & 创意程序员',
       sub: '我打造沉浸式的网页体验，让代码与视觉设计在交汇处相遇。',
       viewWork: '查看作品',
       getInTouch: '联系我',
@@ -86,7 +86,7 @@ const translations = {
     langLabel: '中',
     nav: { about: 'About', work: 'Work', skills: 'Skills', contact: 'Contact' },
     hero: {
-      tag: '// Frontend Developer & Creative Coder',
+      tag: '// Game Developer & Creative Coder',
       sub: 'I craft immersive web experiences that live at the intersection of code and visual design.',
       viewWork: 'View My Work',
       getInTouch: 'Get In Touch',

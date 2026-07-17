@@ -27,6 +27,17 @@ export default function CustomCursor() {
     }
     window.addEventListener('mousemove', onMove, { passive: true })
 
+    // Touch: let the glow follow the finger on mobile
+    const onTouch = (e) => {
+      const t = e.touches[0]
+      if (!t) return
+      mx = t.clientX; my = t.clientY
+      tail.push({ x: mx, y: my })
+      if (tail.length > MAX) tail.shift()
+    }
+    window.addEventListener('touchstart', onTouch, { passive: true })
+    window.addEventListener('touchmove', onTouch, { passive: true })
+
     const draw = () => {
       raf = requestAnimationFrame(draw)
       frame++
@@ -70,6 +81,8 @@ export default function CustomCursor() {
 
     return () => {
       window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('touchstart', onTouch)
+      window.removeEventListener('touchmove', onTouch)
       window.removeEventListener('resize', onResize)
       cancelAnimationFrame(raf)
     }

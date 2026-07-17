@@ -75,3 +75,11 @@
 .nav-link-active::after {
   width: 100% !important;
 }
+
+/* On phones the text links don't fit — keep just the logo + language toggle.
+   Section navigation is handled by the page dots and natural scrolling. */
+@media (max-width: 768px) {
+  .navbar { padding: 16px 22px; }
+  .navbar.scrolled { padding: 12px 22px; }
+  .nav-links { display: none; }
+}

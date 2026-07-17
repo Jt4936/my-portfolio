@@ -117,3 +117,30 @@ a, button, input, textarea, select { cursor: none; }
   40%  { opacity: 0.6; }
   100% { opacity: 0; }
 }
+
+/* ── Mobile: natural touch scrolling, sections grow to fit content ── */
+@media (max-width: 768px) {
+  html, body { cursor: auto; }
+  a, button, input, textarea, select { cursor: auto; }
+
+  .fullpage {
+    scroll-snap-type: none;
+  }
+
+  .fullpage section {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: visible;
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
+  /* Page dots sit closer to the edge on small screens */
+  .page-dots {
+    right: 12px;
+    gap: 8px;
+  }
+  .page-dot { width: 7px; height: 7px; }
+  .page-dot.active { height: 22px; }
+}
