@@ -1,17 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import './AvatarCard.css'
 
-// Flip to true once the 4 expression PNGs exist in public/avatar/.
-// (Kept false so the live site never requests missing images.)
-export const AVATAR_READY = false
+export const AVATAR_READY = true
 
-// Expression images, ordered FAR → NEAR. The circular mask crops the
-// bottom-right "豆包AI生成" watermark out of frame naturally.
+// Expression images, ordered FAR → NEAR. Source watermark was cropped off
+// during processing; the circular mask keeps the face centered.
 const EXPR = [
-  { key: 'unhappy',   src: '/avatar/unhappy.png',   label: 'ZZZ…' }, // cursor far away
-  { key: 'calm',      src: '/avatar/calm.png',      label: 'HELLO' },
-  { key: 'happy',     src: '/avatar/happy.png',     label: ':D' },
-  { key: 'surprised', src: '/avatar/surprised.png', label: '!!' },   // cursor very close
+  { key: 'unhappy',   src: '/avatar/unhappy.jpg',   label: 'ZZZ…' }, // cursor far away
+  { key: 'calm',      src: '/avatar/calm.jpg',      label: 'HELLO' },
+  { key: 'happy',     src: '/avatar/happy.jpg',     label: ':D' },
+  { key: 'surprised', src: '/avatar/surprised.jpg', label: '!!' },   // cursor very close
 ]
 
 export default function AvatarCard() {

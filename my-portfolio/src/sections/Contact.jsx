@@ -48,7 +48,6 @@ export default function Contact({ isActive }) {
         }
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
       >
-        <img src="/photo-outdoor.jpg" alt="Jintao Hu" className="contact-bg-img" />
         {/* Dark gradient overlay so text is readable */}
         <div className="contact-bg-overlay" />
         {/* Atmospheric particles */}
