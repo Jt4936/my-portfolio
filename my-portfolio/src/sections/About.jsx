@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useLang } from '../i18n'
+import AvatarCard, { AVATAR_READY } from '../components/AvatarCard'
 import './About.css'
 
 export default function About() {
@@ -50,6 +51,13 @@ export default function About() {
         </div>
 
         <div className="about-right">
+          {AVATAR_READY && (
+            <motion.div className="about-avatar"
+              animate={inView?{opacity:1,y:0}:{opacity:0,y:20}}
+              transition={{duration:0.7,delay:0.15}}>
+              <AvatarCard />
+            </motion.div>
+          )}
           <div className="stats-grid">
             {stats.map((s, i) => (
               <motion.div key={s.label} className="stat-card"

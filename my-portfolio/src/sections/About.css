@@ -38,6 +38,12 @@
   letter-spacing: 0.02em;
 }
 
+.about-avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
