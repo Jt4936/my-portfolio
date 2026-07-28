@@ -9,7 +9,7 @@ const translations = {
     nav: { about: '关于', work: '作品', skills: '技能', contact: '联系' },
     hero: {
       tag: '// 游戏开发者 & 创意程序员',
-      sub: '我打造沉浸式的网页体验，让代码与视觉设计在交汇处相遇。',
+      sub: '我设计并独立开发游戏——从核心系统、数值平衡到关卡与战斗手感；也做交互设计与前端。',
       viewWork: '查看作品',
       getInTouch: '联系我',
       scroll: '滚动探索',
@@ -20,7 +20,7 @@ const translations = {
       titleLine1: '设计邂逅',
       titleLine2: '技术',
       body1: '你好，我是 Jintao —— 悉尼科技大学（UTS）信息技术（交互设计）硕士，2026 年 5 月刚刚毕业。我的经历从加州大学圣克鲁兹分校的计算机科学基础，一路延伸到专注于 UX/UI 设计与前端开发。',
-      body2: '我在设计思维与技术实现之间架起桥梁 —— 用 Figma 制作高保真原型，构建交互式网页体验，并使用 Unity 和 Unreal Engine 5 开发游戏。我热衷于创造既直观又极具视觉冲击力的数字体验。',
+      body2: '我独立开发游戏：用 Unity 完成系统程序、数值平衡与关卡设计——代表作《有尽深渊》是 84 小时独立完成的 Game Jam 参赛作。同时我也在设计与技术之间架桥：Figma 高保真原型、交互式网页与前端实现。',
       edu: [
         { degree: '信息技术硕士 · 交互设计', school: '悉尼科技大学 · 2026' },
         { degree: '信息技术学士 · 交互设计', school: '悉尼科技大学 · 2024' },
@@ -34,19 +34,20 @@ const translations = {
       ],
     },
     work: {
-      tag: '// 精选作品',
-      title: '我做过的东西',
-      viewAll: '查看全部项目',
-      count: '共 8 个项目',
+      tag: '// 游戏作品',
+      title: '我做的游戏',
+      viewAll: '查看其他设计项目',
+      count: '3 个深度案例',
+      cta: '查看案例',
     },
     skills: {
       tag: '// 技术栈',
       title: '我的工具箱',
       groups: [
+        { category: '游戏开发', skills: ['Unity (C#)', 'Unreal Engine 5', '系统 / 数值设计', '关卡设计', '2D / 3D 游戏', '游戏 UI'] },
         { category: '设计与原型', skills: ['Figma', '用户研究', 'UI 设计', '交互设计', '可用性测试', '设计思维'] },
         { category: '前端开发', skills: ['HTML / CSS / JS', 'React', 'Three.js', 'Framer Motion', 'GSAP', 'p5.js / Processing'] },
-        { category: '游戏开发', skills: ['Unity (C#)', 'Unreal Engine 5', '2D / 3D 游戏', '沉浸式叙事', '游戏 UI 设计'] },
-        { category: '创意与技术', skills: ['SwiftUI / iOS', '数据可视化', 'Arduino', '可穿戴计算', '服务设计', 'Git'] },
+        { category: '创意与技术', skills: ['SwiftUI / iOS', '数据可视化', 'Arduino', '服务设计', 'Git'] },
       ],
     },
     contact: {
@@ -87,7 +88,7 @@ const translations = {
     nav: { about: 'About', work: 'Work', skills: 'Skills', contact: 'Contact' },
     hero: {
       tag: '// Game Developer & Creative Coder',
-      sub: 'I craft immersive web experiences that live at the intersection of code and visual design.',
+      sub: 'I design and build games solo — from core systems and balancing to levels and combat feel — and craft interactive web experiences too.',
       viewWork: 'View My Work',
       getInTouch: 'Get In Touch',
       scroll: 'Scroll to explore',
@@ -98,7 +99,7 @@ const translations = {
       titleLine1: 'Design meets',
       titleLine2: 'Technology',
       body1: "Hi, I'm Jintao — a freshly graduated Master of Information Technology (Interactive Design) from UTS Sydney, Class of May 2026. My journey spans from Computer Science foundations at UC Santa Cruz to specialising in UX/UI design and front-end development.",
-      body2: "I bridge the gap between design thinking and technical implementation — crafting high-fidelity prototypes in Figma, building interactive web experiences, and developing games in Unity and Unreal Engine 5. I'm passionate about creating digital experiences that feel both intuitive and visually striking.",
+      body2: "I build games solo in Unity — systems programming, numerical balancing and level design (my jam entry Abyss of Ends was made solo in 84 hours). I also bridge design and engineering: high-fidelity Figma prototypes, interactive web experiences and front-end implementation.",
       edu: [
         { degree: 'Master of IT · Interactive Design', school: 'University of Technology Sydney · 2026' },
         { degree: 'Bachelor of IT · Interactive Design', school: 'University of Technology Sydney · 2024' },
@@ -112,19 +113,20 @@ const translations = {
       ],
     },
     work: {
-      tag: '// Selected Work',
-      title: "Things I've Built",
-      viewAll: 'View All Projects',
-      count: '8 projects total',
+      tag: '// Selected Games',
+      title: "Games I've Built",
+      viewAll: 'See other design work',
+      count: '3 in-depth case studies',
+      cta: 'Case study',
     },
     skills: {
       tag: '// Tech Stack',
       title: 'What I Work With',
       groups: [
+        { category: 'Game Development', skills: ['Unity (C#)', 'Unreal Engine 5', 'Systems / Balancing', 'Level Design', '2D / 3D Games', 'Game UI'] },
         { category: 'Design & Prototyping', skills: ['Figma', 'UX Research', 'UI Design', 'Interaction Design', 'Usability Testing', 'Design Thinking'] },
         { category: 'Frontend Development', skills: ['HTML / CSS / JS', 'React', 'Three.js', 'Framer Motion', 'GSAP', 'p5.js / Processing'] },
-        { category: 'Game Development', skills: ['Unity (C#)', 'Unreal Engine 5', '2D / 3D Games', 'Immersive Storytelling', 'Game UI Design'] },
-        { category: 'Creative & Technical', skills: ['SwiftUI / iOS', 'Data Visualization', 'Arduino', 'Wearable Computing', 'Service Design', 'Git'] },
+        { category: 'Creative & Technical', skills: ['SwiftUI / iOS', 'Data Visualization', 'Arduino', 'Service Design', 'Git'] },
       ],
     },
     contact: {

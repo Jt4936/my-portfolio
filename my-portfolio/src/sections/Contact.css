@@ -29,6 +29,21 @@
   object-fit: cover;
   object-position: center 30%;
   display: block;
+  /* game-style cyber duotone treatment */
+  filter: grayscale(0.4) sepia(0.32) hue-rotate(48deg) saturate(1.35) contrast(1.14) brightness(0.88);
+}
+
+/* CRT scanlines + vignette over the photo (text sits above via z-index) */
+.contact-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.22) 0px, rgba(0,0,0,0.22) 1px, transparent 1px, transparent 3px),
+    radial-gradient(ellipse at center, transparent 52%, rgba(0,0,0,0.55) 100%);
+  mix-blend-mode: multiply;
 }
 
 .contact-bg-overlay {
