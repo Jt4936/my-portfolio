@@ -56,6 +56,8 @@ const translations = {
       titleLine2: '创造点什么',
       sub: '我目前正在寻找新的机会。无论你脑海中已有项目，还是只想打个招呼 —— 随时欢迎联系。',
       footerBuilt: '使用 React + Three.js 构建',
+      signal: '信号已建立 · 抵达终点',
+      open: '目前开放新机会 · OPEN TO WORK',
     },
     projects: {
       back: '返回',
@@ -135,6 +137,8 @@ const translations = {
       titleLine2: 'Something Together',
       sub: "I'm currently open to new opportunities. Whether you have a project in mind or just want to say hello — reach out anytime.",
       footerBuilt: 'Built with React + Three.js',
+      signal: 'SIGNAL ESTABLISHED · ARRIVED',
+      open: 'OPEN TO WORK',
     },
     projects: {
       back: 'Back',

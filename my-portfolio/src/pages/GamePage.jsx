@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import CustomCursor from '../components/CustomCursor'
 import LangToggle from '../components/LangToggle'
 import { useLang } from '../i18n'
@@ -176,8 +176,16 @@ function Block({ block, lang, accent }) {
 export default function GamePage() {
   const { slug } = useParams()
   const navigate = useNavigate()
+  const location = useLocation()
   const { lang, t } = useLang()
   const game = games[slug]
+
+  // Back = the previous view: the projects grid if we came from there,
+  // otherwise the Work section on the home page (not the Hero top).
+  const goBack = () => {
+    if (location.state?.from === 'projects') navigate('/projects', { state:{ from:'home' } })
+    else navigate('/', { state:{ section: 2 } })
+  }
 
   useEffect(() => { window.scrollTo(0, 0) }, [slug])
   useEffect(() => { document.body.classList.remove('fullpage-mode') }, [])
@@ -200,7 +208,7 @@ export default function GamePage() {
       <CustomCursor />
 
       <div className="gp-nav">
-        <button className="gp-back" onClick={() => navigate('/')}>
+        <button className="gp-back" onClick={goBack}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
             <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -230,7 +238,7 @@ export default function GamePage() {
       </main>
 
       <footer className="gp-footer">
-        <button className="gp-back" onClick={() => navigate('/')}>← {t.projects.back}</button>
+        <button className="gp-back" onClick={goBack}>← {t.projects.back}</button>
         <span>© 2026 Jintao Hu</span>
       </footer>
     </div>

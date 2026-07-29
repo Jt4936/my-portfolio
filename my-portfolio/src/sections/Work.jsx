@@ -38,7 +38,7 @@ export default function Work() {
             style={{'--accent-color':p.color}}
             animate={inView?{opacity:1,x:0}:{opacity:0,x:-40}}
             transition={{duration:0.7,delay:i*0.1}}
-            onClick={()=>navigate(`/game/${p.slug}`)}
+            onClick={()=>navigate(`/game/${p.slug}`, { state:{ from:'home' } })}
           >
             <div className="project-num">{p.num}</div>
             <div className="project-info">
@@ -61,7 +61,7 @@ export default function Work() {
       <motion.div className="work-footer"
         animate={inView?{opacity:1,y:0}:{opacity:0,y:20}}
         transition={{duration:0.7,delay:0.5}}>
-        <button className="view-all-btn" onClick={()=>navigate('/projects')}>
+        <button className="view-all-btn" onClick={()=>navigate('/projects', { state:{ from:'home' } })}>
           {t.work.viewAll}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

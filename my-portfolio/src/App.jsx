@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import Work from './sections/Work'
@@ -34,6 +35,7 @@ export default function App() {
   }, [])
 
   const [flashColor, setFlashColor]   = useState(null)
+  const location = useLocation()
   const containerRef = useRef(null)
   const particleRef  = useRef(null)
   const isScrolling  = useRef(false)
@@ -134,6 +136,15 @@ export default function App() {
       }, idx===4 ? 500 : 80)
     }
   }
+
+  // Returning from a sub-page (case study / projects): jump to the section
+  // the user came from instead of resetting to the Hero.
+  useEffect(() => {
+    const sec = location.state?.section
+    if (sec == null) return
+    const t = setTimeout(() => goTo(sec), 140)
+    return () => clearTimeout(t)
+  }, [])
 
   return (
     <div className="app">
