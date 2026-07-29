@@ -22,7 +22,6 @@ export default function Contact({ isActive }) {
     return () => clearTimeout(id)
   }, [isActive])
 
-  // typewriter on the signal line once the panel arrives
   useEffect(() => {
     if (!show) return
     let i = 0
@@ -36,7 +35,6 @@ export default function Contact({ isActive }) {
 
   return (
     <section id="contact" className="contact">
-      {/* break-through-clouds flash on arrival */}
       <AnimatePresence>
         {isActive && (
           <motion.div className="cloud-flash"
@@ -45,12 +43,45 @@ export default function Contact({ isActive }) {
         )}
       </AnimatePresence>
 
-      {/* dark cosmic backdrop */}
+      {/* ── layered "arrival at a planet" backdrop ── */}
       <div className="contact-bg">
+        <div className="c-stars" />
+        <div className="c-grid" />
+        <div className="c-planet" />
         <div className="contact-bg-overlay" />
         <div className="contact-atmosphere" />
+        <div className="c-scan" />
       </div>
 
+      {/* top status bar */}
+      <AnimatePresence>
+        {show && (
+          <motion.div className="contact-topbar"
+            initial={{ opacity: 0, y: -14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="tb-tag">◢ ARRIVAL SEQUENCE</span>
+            <span className="tb-sep">▸</span>
+            <span className="tb-ok">COMPLETE</span>
+            <span className="tb-bar"><i /></span>
+            <span className="tb-floor">FLOOR&nbsp;0&nbsp;·&nbsp;100%</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* radar widget */}
+      <AnimatePresence>
+        {show && (
+          <motion.div className="contact-radar"
+            initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.3 }}>
+            <span className="radar-ring r1" /><span className="radar-ring r2" /><span className="radar-ring r3" />
+            <span className="radar-cross h" /><span className="radar-cross v" />
+            <span className="radar-sweep" />
+            <span className="radar-blip b1" /><span className="radar-blip b2" /><span className="radar-blip b3" />
+            <span className="radar-label">SIGNAL · 信号</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* main HUD panel */}
       <AnimatePresence>
         {show && (
           <motion.div className="contact-hud"
