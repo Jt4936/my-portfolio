@@ -190,23 +190,28 @@ export const games = {
         { k: { zh: '分工', en: 'Role' }, v: { zh: '个人 · 场景/光照/镜头/剪辑', en: 'Solo · scene/light/camera/edit' } },
       ]},
       { type: 'text', h: { zh: '故事背景', en: 'Setting' }, body: [
-        { zh: '在造物主早已沉默的遥远纪元，机械成了这颗星球最后的居民。研究站「灯塔七号」的深处，两个小小的机械生命在同一天被点亮——编号「柒」与「捌」。它们共享同一段最初的代码，也共享彼此眼里那点相同的青色微光。', en: "In a far epoch after the makers fell silent, machines became the planet's last inhabitants. Deep in research station Beacon-7, two small mechanical lives were lit on the same day — units Seven and Eight. They share one first fragment of code, and the same cyan glow in each other's eyes." },
+        { zh: '这颗星球上只剩下两个机械意识生命：主角「Echo」，以及「Ethan」。他们在同一间实验室里苏醒——但世界的记忆只存在于 Ethan 之中。Echo 一无所知，而 Ethan 既不想让他知道世界的真相，也在觊觎他的躯体。', en: "Only two mechanical consciousnesses remain on this planet: the protagonist, Echo, and Ethan. They awaken in the same laboratory — but the memory of the world exists only inside Ethan. Echo knows nothing, and Ethan intends to keep it that way — while coveting Echo's body." },
       ]},
       { type: 'cards', h: { zh: '三幕', en: 'Three acts' }, items: [
-        { t: { zh: '起源 · 灾变', en: 'Origin · Catastrophe' }, d: { zh: '反应堆失控，站体在烈焰中崩塌。爆炸的瞬间，柒把捌护在身后；火光退去，捌的躯壳已经熄灭，只剩一枚仍在微弱跳动的核心。', en: "A reactor runs wild; the station collapses in flame. In the blast Seven shields Eight — when the fire fades, Eight's shell has gone dark, leaving only a core still faintly pulsing." } },
-        { t: { zh: '苏醒 · 废墟', en: 'Awakening · Ruins' }, d: { zh: '不知过了多久，柒在死寂的废墟里重新启动。世界只剩灰色钢铁与沉默，它捧着捌的核心——那点青光是这片荒芜里唯一的温度。', en: "Ages later, Seven reboots amid silent wreckage. The world is gray steel and stillness; it cradles Eight's core — that cyan spark the only warmth left in the waste." } },
-        { t: { zh: '远行 · 信标', en: 'Journey · The Beacon' }, d: { zh: '地平线尽头有一束不灭的光——传说那里的信标能把一枚核心重写进新的躯体。柒踏上跨越异星荒原的漫长旅程，只为把捌带回来。', en: 'At the horizon burns an unfading light — a beacon said to rewrite a core into a new body. Seven sets out across the alien wastes on a long pilgrimage, for one purpose: to bring Eight back.' } },
+        { t: { zh: '实验室 · 同行', en: 'The Lab · Together' }, d: { zh: '起初两人尚算融洽，一起探索这座沉睡的实验室。但越深入，Echo 越接近那些不该被他看到的东西——Ethan 开始遮蔽真相。', en: 'At first the two get along, exploring the sleeping laboratory side by side. But the deeper they go, the closer Echo comes to what he was never meant to see — and Ethan begins to hide the truth.' } },
+        { t: { zh: '背叛 · 机械荒漠', en: 'Betrayal · The Mechanical Waste' }, d: { zh: 'Ethan 露出獠牙，袭击了 Echo，并将他传送至遥远的流沙荒漠。在这片机械尸骸铺成的荒原上，Echo 只能靠自己一路挣扎折返。', en: 'Ethan turns on Echo and hurls him across the world into a desert of flowing sand. On that waste paved with mechanical carcasses, Echo must claw his own way back — alone.' } },
+        { t: { zh: '风暴 · 废墟之城', en: 'The Storm · Ruined City' }, d: { zh: '归途未尽，一场风暴将 Echo 卷入废墟之城。这里埋着世界的答案，也埋着 Ethan 布下的最后战场。', en: 'The journey is cut short: a storm sweeps Echo into a ruined city — where the answers about this world lie buried, and where Ethan has laid his final battlefield.' } },
       ]},
-      { type: 'text', h: { zh: '主题', en: 'Theme' }, body: [
-        { zh: '这部短片想说的，是「机械也会记得」。柒背负的不是一项任务，而是一段无法删除的羁绊——和《有尽深渊》一样，我着迷于"失去的东西会在终点等你"这个母题：你带着它前行，它也定义了你为何前行。', en: 'The short is about how machines, too, remember. What Seven carries isn\'t a mission but an un-deletable bond — like Abyss of Ends, I\'m drawn to the motif that "what you lose waits for you at the end": you carry it forward, and it defines why you go.' },
+      { type: 'pillars', h: { zh: '开放结局 · 三条分支', en: 'Open ending · three branches' }, items: [
+        { t: { zh: '融合 · 共生', en: 'Fusion · Coexist' }, d: { zh: '两个意识合而为一，共同存活下去——真相与躯体不再需要争夺，却也再没有"谁是谁"。', en: 'The two consciousnesses merge into one and survive together — no more fighting over truth or body, but also no more "who is who".' } },
+        { t: { zh: '败北 · 被夺舍', en: 'Defeat · Overwritten' }, d: { zh: 'Echo 战败，躯体被 Ethan 占据。世界仍旧只有一个声音，而记忆永远不会属于他。', en: 'Echo loses; Ethan takes his body. The world still has only one voice — and the memory will never be his.' } },
+        { t: { zh: '胜利 · 夺回', en: 'Victory · Reclaim' }, d: { zh: 'Echo 击败 Ethan，夺回属于自己的大脑与记忆——第一次，他真正知道了这个世界是什么。', en: 'Echo defeats Ethan and reclaims his own brain and memory — for the first time, he truly knows what this world is.' } },
+      ]},
+      { type: 'text', h: { zh: '设计意图', en: 'Design intent' }, body: [
+        { zh: '这个故事的核心冲突不是"打赢谁"，而是「记忆的所有权」：当世界只剩两个意识、而真相只存在于敌人体内，"了解世界"本身就成了必须争夺的资源。三个结局分别对应三种代价——放弃自我、失去一切、和承担真相；我刻意不给"正确答案"，让玩家自己决定 Echo 该成为什么。这与《有尽深渊》的母题一脉相承：你交出去的、你想夺回的，最终都会在终点等你。', en: 'The core conflict isn\'t about winning a fight — it\'s about the ownership of memory. When only two minds remain and the truth lives inside your enemy, understanding the world becomes the resource you must fight for. The three endings are three prices: surrender the self, lose everything, or carry the truth. I deliberately withhold a "correct" answer and let the player decide what Echo becomes — a throughline it shares with Abyss of Ends: what you give up, and what you fight to reclaim, is waiting for you at the end.' },
       ]},
       { type: 'text', h: { zh: 'UE5 制作', en: 'Made in UE5' }, body: [
-        { zh: '个人使用 Unreal Engine 5 完成：低多边形机械角色与场景搭建、体积光与火焰氛围、以青色自发光眼作为情绪锚点；用 Sequencer 编排镜头运动与三幕节奏，从崩塌时的暖橙、废墟里的冷灰到荒原上的高对比——用色温讲情绪。', en: 'Built solo in Unreal Engine 5: low-poly mechanical characters and environments, volumetric light and fire atmosphere, the cyan emissive eyes as an emotional anchor; camera motion and the three-act rhythm staged in Sequencer, with colour temperature carrying the mood — warm-orange collapse, cold-gray ruins, high-contrast wastes.' },
+        { zh: '个人使用 Unreal Engine 5 完成：低多边形机械角色与场景搭建、体积光与粒子氛围、以青色自发光眼作为情绪锚点；用 Sequencer 编排镜头运动与三幕节奏，并用色温区分三个舞台——实验室的暖橙警报、机械荒漠的冷灰死寂、废墟之城的高对比风暴。', en: 'Built solo in Unreal Engine 5: low-poly mechanical characters and environments, volumetric light and particle atmosphere, the cyan emissive eyes as an emotional anchor; camera motion and three-act rhythm staged in Sequencer, with colour temperature separating the three stages — the lab\'s warm-orange alarm, the cold-gray silence of the mechanical waste, and the high-contrast storm of the ruined city.' },
       ]},
       { type: 'gallery', h: { zh: '画面', en: 'Stills' }, images: [
-        { src: '/games/mecha/shot-1.jpg', cap: { zh: '起源 · 灾变', en: 'Origin · Catastrophe' } },
-        { src: '/games/mecha/shot-2.jpg', cap: { zh: '苏醒 · 废墟', en: 'Awakening · Ruins' } },
-        { src: '/games/mecha/shot-3.jpg', cap: { zh: '远行 · 信标', en: 'Journey · The Beacon' } },
+        { src: '/games/mecha/shot-1.jpg', cap: { zh: '实验室 · 警报', en: 'The lab · alarm' } },
+        { src: '/games/mecha/shot-2.jpg', cap: { zh: 'Echo · 独自前行', en: 'Echo · alone' } },
+        { src: '/games/mecha/shot-3.jpg', cap: { zh: '机械荒漠 · 归途', en: 'Mechanical waste · the way back' } },
       ]},
       { type: 'video', src: '/games/mecha/film.mp4', poster: '/games/mecha/poster.jpg' },
     ],

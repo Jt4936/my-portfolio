@@ -259,3 +259,13 @@
 }
 .modal-link:hover { background: var(--card-color); color: #07070a; }
 .modal-link.accent { background: var(--card-color); color: #07070a; }
+
+/* demo video inside the project modal */
+.modal-video {
+  width: 100%;
+  display: block;
+  background: #000;
+  border-radius: 18px 18px 0 0;
+  border-bottom: 1px solid var(--card-color);
+  max-height: 56vh;
+}
