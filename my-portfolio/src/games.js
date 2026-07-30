@@ -147,7 +147,7 @@ export const games = {
     subtitle: { zh: '独立开发的低多边形农场建造 RPG', en: 'A solo low-poly farm-and-build RPG' },
     tags: ['Unity', 'C#', '独立开发', '系统'],
     tagsEn: ['Unity', 'C#', 'Solo dev', 'Systems'],
-    cover: null,
+    cover: '/games/farming/growth.jpg',
     links: {
       source: 'https://github.com/Jt4936/Farming-',
     },
@@ -166,9 +166,11 @@ export const games = {
         { t: { zh: '数据层', en: 'Data layer' }, d: { zh: 'ScriptableObject + Runtime Data 分层，配置与运行时状态解耦。', en: 'ScriptableObject + runtime-data split — config decoupled from runtime state.' } },
         { t: { zh: '村庄与地牢框架', en: 'Village & dungeon' }, d: { zh: '村民 AI 框架 + 地牢生成框架，预留存档 / 事件系统扩展接口。', en: 'Villager-AI and dungeon-generation frameworks, with save / event extension hooks.' } },
       ]},
-      { type: 'text', h: { zh: '截图', en: 'Screenshots' }, body: [
-        { zh: '实机截图更新中——项目仍在系统搭建阶段，美术与可玩场景完善后补充。源码见上方 GitHub。', en: 'In-game screenshots coming soon — the project is still in the systems phase; art and playable scenes will follow. Source on GitHub above.' },
-      ]},
+      { type: 'gallery', h: { zh: '实机截图 · 灰盒原型', en: 'In-engine · greybox prototype' }, images: [
+        { src: '/games/farming/growth.jpg', cap: { zh: '作物生长：耕地 → 播种 → 幼苗（地块状态用颜色区分）', en: 'Crop growth: till → sow → sprout (plot state read by colour)' } },
+        { src: '/games/farming/mature.jpg', cap: { zh: '成熟待收：作物进入可收获阶段', en: 'Ripe: crops reach the harvestable stage' } },
+        { src: '/games/farming/shop.jpg', cap: { zh: '商人商店 · 背包格位 · 金币经济', en: 'Merchant shop · inventory slots · gold economy' } },
+      ], note: { zh: '当前为灰盒（程序几何体）阶段——先验证 FarmGrid 网格、生长状态机与买卖经济能否跑通，美术资源后置。', en: 'Currently greybox (primitive geometry) — the goal is proving out the FarmGrid, the growth state machine and the buy/sell economy first; art comes later.' } },
     ],
   },
 
