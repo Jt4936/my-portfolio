@@ -37,8 +37,9 @@ const translations = {
       tag: '// 游戏作品',
       title: '我做的游戏',
       viewAll: '查看其他设计项目',
-      count: '3 个深度案例',
+      count: '4 个深度案例',
       cta: '查看案例',
+      more: '更多作品',
     },
     skills: {
       tag: '// 技术栈',
@@ -118,8 +119,9 @@ const translations = {
       tag: '// Selected Games',
       title: "Games I've Built",
       viewAll: 'See other design work',
-      count: '3 in-depth case studies',
+      count: '4 in-depth case studies',
       cta: 'Case study',
+      more: 'More work',
     },
     skills: {
       tag: '// Tech Stack',

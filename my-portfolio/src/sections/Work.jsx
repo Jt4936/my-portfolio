@@ -28,8 +28,17 @@ export default function Work() {
       <motion.div className="work-header"
         animate={inView?{opacity:1,y:0}:{opacity:0,y:30}}
         transition={{duration:0.7}}>
-        <div className="section-tag">{t.work.tag}</div>
-        <h2 className="work-title">{t.work.title}</h2>
+        <div className="work-header-left">
+          <div className="section-tag">{t.work.tag}</div>
+          <h2 className="work-title">{t.work.title}</h2>
+        </div>
+        <button className="work-more" onClick={()=>navigate('/projects', { state:{ from:'home' } })}>
+          <span className="work-more-label">{t.work.more}</span>
+          <span className="work-more-count">{t.work.count}</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
       </motion.div>
 
       <div className="projects-list">
@@ -58,17 +67,6 @@ export default function Work() {
         ))}
       </div>
 
-      <motion.div className="work-footer"
-        animate={inView?{opacity:1,y:0}:{opacity:0,y:20}}
-        transition={{duration:0.7,delay:0.5}}>
-        <button className="view-all-btn" onClick={()=>navigate('/projects', { state:{ from:'home' } })}>
-          {t.work.viewAll}
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <span className="work-count">{t.work.count}</span>
-      </motion.div>
     </section>
   )
 }
