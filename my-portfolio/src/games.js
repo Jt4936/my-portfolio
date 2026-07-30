@@ -147,33 +147,70 @@ export const games = {
     subtitle: { zh: '独立开发的低多边形农场建造 RPG', en: 'A solo low-poly farm-and-build RPG' },
     tags: ['Unity', 'C#', '独立开发', '系统'],
     tagsEn: ['Unity', 'C#', 'Solo dev', 'Systems'],
-    cover: '/games/farming/village.jpg',
+    cover: null,
     links: {
       source: 'https://github.com/Jt4936/Farming-',
     },
     blocks: [
       { type: 'stats', items: [
         { k: { zh: '类型', en: 'Genre' }, v: { zh: '农场经营 / 建造 RPG', en: 'Farm-sim / build RPG' } },
-        { k: { zh: '引擎', en: 'Engine' }, v: { zh: 'Unity · C#', en: 'Unity · C#' } },
+        { k: { zh: '引擎', en: 'Engine' }, v: { zh: 'Unity 3D · C#', en: 'Unity 3D · C#' } },
         { k: { zh: '分工', en: 'Role' }, v: { zh: '个人独立项目', en: 'Solo project' } },
-        { k: { zh: '年份', en: 'Year' }, v: { zh: '2024–2025', en: '2024–2025' } },
+        { k: { zh: '状态', en: 'Status' }, v: { zh: '阶段一 · 系统架构', en: 'Phase 1 · systems' } },
       ]},
       { type: 'text', h: { zh: '概述', en: 'Overview' }, body: [
-        { zh: '一款 Unity 3D 低多边形农场 RPG：村庄经营、地牢探索、工具轮盘、天气系统与体力机制。种田、交易、与 NPC 建立关系，并解锁地下地牢。', en: 'A Unity 3D low-poly farming RPG with village management, dungeon exploration, a tool wheel, weather and a stamina framework. Farm, trade, build NPC relationships and unlock underground dungeons.' },
+        { zh: '一个 Unity 3D 低多边形农场 RPG，玩法围绕「农场经营 + 村民互动 + 地牢探索」：在农田种植、浇水、施肥、收获、升级，同时与村民建立关系接取任务，并进入随机生成的地下地牢采矿、获取稀有材料。当前处于阶段一，目标是先把系统架构、数据结构与核心代码框架打稳。', en: 'A Unity 3D low-poly farm RPG built around "farming + villager interaction + dungeon exploration": till, water, fertilise, harvest and upgrade crops, build relationships with villagers for quests, and descend into procedurally generated dungeons to mine rare materials. Currently in Phase 1 — the focus is getting the systems architecture, data structures and core code framework solid first.' },
       ]},
-      { type: 'cards', h: { zh: '实现要点', en: 'Built systems' }, items: [
-        { t: { zh: 'FarmGrid 网格系统', en: 'FarmGrid system' }, d: { zh: '基于网格的耕种/放置逻辑，支撑作物种植与场景搭建。', en: 'Grid-based tilling and placement that drives crops and scene building.' } },
-        { t: { zh: '作物与经营循环', en: 'Crop & economy loop' }, d: { zh: '种植 → 生长 → 收获 → 交易，配合体力与天气节奏。', en: 'Plant → grow → harvest → trade, paced by stamina and weather.' } },
-        { t: { zh: '村庄与地牢', en: 'Village & dungeons' }, d: { zh: '地表村庄经营与地下地牢探索双场景切换。', en: 'Surface village management and underground dungeon exploration.' } },
+      { type: 'cards', h: { zh: '已搭建的系统框架', en: 'Systems framework built' }, items: [
+        { t: { zh: 'FarmGrid 网格系统', en: 'FarmGrid system' }, d: { zh: '基于网格的耕种 / 放置逻辑，支撑作物种植与场景搭建。', en: 'Grid-based tilling and placement driving crops and scene building.' } },
+        { t: { zh: '数据层', en: 'Data layer' }, d: { zh: 'ScriptableObject + Runtime Data 分层，配置与运行时状态解耦。', en: 'ScriptableObject + runtime-data split — config decoupled from runtime state.' } },
+        { t: { zh: '村庄与地牢框架', en: 'Village & dungeon' }, d: { zh: '村民 AI 框架 + 地牢生成框架，预留存档 / 事件系统扩展接口。', en: 'Villager-AI and dungeon-generation frameworks, with save / event extension hooks.' } },
       ]},
-      { type: 'gallery', h: { zh: '游戏截图', en: 'Screenshots' }, images: [
-        { src: '/games/farming/village.jpg', cap: { zh: '村庄场景', en: 'Village' } },
-        { src: '/games/farming/dungeon.jpg', cap: { zh: '地牢探索', en: 'Dungeon' } },
-        { src: '/games/farming/dialog.jpg', cap: { zh: 'NPC 对话', en: 'NPC dialog' } },
-        { src: '/games/farming/menu.jpg', cap: { zh: '主菜单', en: 'Main menu' } },
+      { type: 'text', h: { zh: '截图', en: 'Screenshots' }, body: [
+        { zh: '实机截图更新中——项目仍在系统搭建阶段，美术与可玩场景完善后补充。源码见上方 GitHub。', en: 'In-game screenshots coming soon — the project is still in the systems phase; art and playable scenes will follow. Source on GitHub above.' },
       ]},
+    ],
+  },
+
+  mecha: {
+    slug: 'mecha',
+    accent: '#44ddff',
+    title: 'ECHO',
+    titleZh: '回响',
+    subtitle: { zh: 'Unreal Engine 5 科幻 CG 短片 · 两个机械生命的故事', en: 'A UE5 sci-fi short film — a tale of two mechanical lives' },
+    tags: ['Unreal Engine 5', 'CG 短片', '场景 / 光照', '镜头 / 剪辑', '叙事'],
+    tagsEn: ['Unreal Engine 5', 'CG film', 'Lighting', 'Cinematics', 'Narrative'],
+    cover: '/games/mecha/shot-1.jpg',
+    links: {},
+    blocks: [
+      { type: 'stats', items: [
+        { k: { zh: '类型', en: 'Type' }, v: { zh: '科幻 CG 短片', en: 'Sci-fi CG short' } },
+        { k: { zh: '引擎', en: 'Engine' }, v: { zh: 'Unreal Engine 5', en: 'Unreal Engine 5' } },
+        { k: { zh: '时长', en: 'Length' }, v: { zh: '约 90 秒', en: '~90 sec' } },
+        { k: { zh: '分工', en: 'Role' }, v: { zh: '个人 · 场景/光照/镜头/剪辑', en: 'Solo · scene/light/camera/edit' } },
+      ]},
+      { type: 'text', h: { zh: '故事背景', en: 'Setting' }, body: [
+        { zh: '在造物主早已沉默的遥远纪元，机械成了这颗星球最后的居民。研究站「灯塔七号」的深处，两个小小的机械生命在同一天被点亮——编号「柒」与「捌」。它们共享同一段最初的代码，也共享彼此眼里那点相同的青色微光。', en: "In a far epoch after the makers fell silent, machines became the planet's last inhabitants. Deep in research station Beacon-7, two small mechanical lives were lit on the same day — units Seven and Eight. They share one first fragment of code, and the same cyan glow in each other's eyes." },
+      ]},
+      { type: 'cards', h: { zh: '三幕', en: 'Three acts' }, items: [
+        { t: { zh: '起源 · 灾变', en: 'Origin · Catastrophe' }, d: { zh: '反应堆失控，站体在烈焰中崩塌。爆炸的瞬间，柒把捌护在身后；火光退去，捌的躯壳已经熄灭，只剩一枚仍在微弱跳动的核心。', en: "A reactor runs wild; the station collapses in flame. In the blast Seven shields Eight — when the fire fades, Eight's shell has gone dark, leaving only a core still faintly pulsing." } },
+        { t: { zh: '苏醒 · 废墟', en: 'Awakening · Ruins' }, d: { zh: '不知过了多久，柒在死寂的废墟里重新启动。世界只剩灰色钢铁与沉默，它捧着捌的核心——那点青光是这片荒芜里唯一的温度。', en: "Ages later, Seven reboots amid silent wreckage. The world is gray steel and stillness; it cradles Eight's core — that cyan spark the only warmth left in the waste." } },
+        { t: { zh: '远行 · 信标', en: 'Journey · The Beacon' }, d: { zh: '地平线尽头有一束不灭的光——传说那里的信标能把一枚核心重写进新的躯体。柒踏上跨越异星荒原的漫长旅程，只为把捌带回来。', en: 'At the horizon burns an unfading light — a beacon said to rewrite a core into a new body. Seven sets out across the alien wastes on a long pilgrimage, for one purpose: to bring Eight back.' } },
+      ]},
+      { type: 'text', h: { zh: '主题', en: 'Theme' }, body: [
+        { zh: '这部短片想说的，是「机械也会记得」。柒背负的不是一项任务，而是一段无法删除的羁绊——和《有尽深渊》一样，我着迷于"失去的东西会在终点等你"这个母题：你带着它前行，它也定义了你为何前行。', en: 'The short is about how machines, too, remember. What Seven carries isn\'t a mission but an un-deletable bond — like Abyss of Ends, I\'m drawn to the motif that "what you lose waits for you at the end": you carry it forward, and it defines why you go.' },
+      ]},
+      { type: 'text', h: { zh: 'UE5 制作', en: 'Made in UE5' }, body: [
+        { zh: '个人使用 Unreal Engine 5 完成：低多边形机械角色与场景搭建、体积光与火焰氛围、以青色自发光眼作为情绪锚点；用 Sequencer 编排镜头运动与三幕节奏，从崩塌时的暖橙、废墟里的冷灰到荒原上的高对比——用色温讲情绪。', en: 'Built solo in Unreal Engine 5: low-poly mechanical characters and environments, volumetric light and fire atmosphere, the cyan emissive eyes as an emotional anchor; camera motion and the three-act rhythm staged in Sequencer, with colour temperature carrying the mood — warm-orange collapse, cold-gray ruins, high-contrast wastes.' },
+      ]},
+      { type: 'gallery', h: { zh: '画面', en: 'Stills' }, images: [
+        { src: '/games/mecha/shot-1.jpg', cap: { zh: '起源 · 灾变', en: 'Origin · Catastrophe' } },
+        { src: '/games/mecha/shot-2.jpg', cap: { zh: '苏醒 · 废墟', en: 'Awakening · Ruins' } },
+        { src: '/games/mecha/shot-3.jpg', cap: { zh: '远行 · 信标', en: 'Journey · The Beacon' } },
+      ]},
+      { type: 'video', src: '/games/mecha/film.mp4', poster: '/games/mecha/poster.jpg' },
     ],
   },
 }
 
-export const gameList = ['abyss', 'zhongkui', 'farming']
+export const gameList = ['abyss', 'zhongkui', 'farming', 'mecha']

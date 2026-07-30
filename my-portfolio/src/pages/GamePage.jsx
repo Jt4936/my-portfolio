@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useParams, useNavigate, useLocation } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import CustomCursor from '../components/CustomCursor'
 import LangToggle from '../components/LangToggle'
 import { useLang } from '../i18n'
@@ -176,16 +176,12 @@ function Block({ block, lang, accent }) {
 export default function GamePage() {
   const { slug } = useParams()
   const navigate = useNavigate()
-  const location = useLocation()
   const { lang, t } = useLang()
   const game = games[slug]
 
-  // Back = the previous view: the projects grid if we came from there,
-  // otherwise the Work section on the home page (not the Hero top).
-  const goBack = () => {
-    if (location.state?.from === 'projects') navigate('/projects', { state:{ from:'home' } })
-    else navigate('/', { state:{ section: 2 } })
-  }
+  // Back from a case study always returns to the "全部项目 / 查看其他设计项目"
+  // page (which itself returns to the Work section on home).
+  const goBack = () => navigate('/projects', { state: { from: 'home' } })
 
   useEffect(() => { window.scrollTo(0, 0) }, [slug])
   useEffect(() => { document.body.classList.remove('fullpage-mode') }, [])
