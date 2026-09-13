@@ -74,6 +74,8 @@
   font-size: 15px;
   line-height: 1.7;
   color: var(--text-muted);
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 .gp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .gp-tag {
@@ -236,6 +238,7 @@
   html, body { cursor: auto; }
   .gp-nav { padding: 14px 20px; }
   .gp-hero { padding: 96px 22px 40px; min-height: 60vh; }
+  .gp-sub { width: calc(100vw - 44px); max-width: 100%; font-size: 13px; }
   .gp-body { padding: 16px 22px 30px; }
   .gp-section { margin-top: 48px; }
   .gp-footer { padding: 24px 22px; flex-direction: column; gap: 12px; }

@@ -269,3 +269,27 @@
   border-bottom: 1px solid var(--card-color);
   max-height: 56vh;
 }
+
+@media (max-width: 768px) {
+  .proj-navbar { padding: 14px 20px; }
+  .proj-page { padding: 72px 20px 28px; }
+  .projects-header { margin-bottom: 14px; }
+  .projects-title { font-size: 38px; }
+  .projects-sub { margin-bottom: 12px; }
+  .filter-row { gap: 6px; margin-bottom: 10px; }
+  .filter-btn { padding: 6px 11px; font-size: 9px; }
+  .projects-grid-6 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .card-body { padding: 9px 10px 10px; }
+  .card-title { font-size: 13px; line-height: 1.15; }
+  .card-subtitle { font-size: 9px; line-height: 1.35; }
+  .proj-dots { right: 8px; }
+  .page-ind { bottom: 9px; right: 20px; }
+  .back-to-top { right: 16px; bottom: 18px; }
+  .modal-backdrop { padding: 16px; }
+  .modal-imgs { height: 210px; }
+  .modal-body { padding: 20px; }
+}

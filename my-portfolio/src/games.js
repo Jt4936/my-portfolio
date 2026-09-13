@@ -3,6 +3,56 @@
 // Text fields are { zh, en } so case studies follow the language toggle.
 
 export const games = {
+  'slot-kingdom': {
+    slug: 'slot-kingdom',
+    accent: '#e0a43a',
+    title: 'Slot Kingdom',
+    titleZh: '老虎机王国',
+    subtitle: { zh: '城邦经营 × 转轮招募 × 轻策略攻城', en: 'City management × reel recruitment × strategic siege' },
+    tags: ['Unity 6', 'WebGL', '城邦经营', '策略', '玩法原型'],
+    tagsEn: ['Unity 6', 'WebGL', 'City Builder', 'Strategy', 'Gameplay Prototype'],
+    cover: '/games/slot-kingdom/cover.webp',
+    links: {
+      play: 'https://jt4936.itch.io/slot-kingdom-demo',
+    },
+    blocks: [
+      { type: 'stats', items: [
+        { k: { zh: '类型', en: 'Genre' }, v: { zh: '城邦经营 · 轻策略', en: 'City builder · light strategy' } },
+        { k: { zh: '引擎', en: 'Engine' }, v: { zh: 'Unity 6 · WebGL', en: 'Unity 6 · WebGL' } },
+        { k: { zh: '版本', en: 'Build' }, v: { zh: '0.1.0-demo · 原型', en: '0.1.0-demo · prototype' } },
+        { k: { zh: '平台', en: 'Platform' }, v: { zh: '浏览器 / HTML5', en: 'Browser / HTML5' } },
+        { k: { zh: '发布', en: 'Released' }, v: { zh: '2026 年 8 月 31 日', en: '31 Aug 2026' } },
+        { k: { zh: '分工', en: 'Role' }, v: { zh: '原型设计 / 开发', en: 'Prototype design / development' } },
+      ]},
+      { type: 'text', h: { zh: '让主城本身成为老虎机', en: 'The city is the slot machine' }, body: [
+        { zh: '《老虎机王国》把城邦经营与转轮随机性连成一个核心循环：从一名农民起步，在主城中生产金币、开采钻石，再用三转轮老虎机招募农民、矿工和不同兵种。资源、科技与军队持续互相推动，最终把经营成果带到城外，完成探索、伏击与攻城。', en: 'Slot Kingdom connects city management and reel-driven randomness in one loop. You begin with a single farmer, produce coins, mine diamonds, then recruit workers and different soldier types through a three-reel slot machine. Economy, technology and army growth feed one another before the run moves outside the walls into exploration, ambushes and a final siege.' },
+      ]},
+      { type: 'pillars', h: { zh: '三个相互咬合的玩法支柱', en: 'Three connected gameplay pillars' }, items: [
+        { t: { zh: '经营 · 建立资源底盘', en: 'Manage · build the economy' }, d: { zh: '农民自动前往农田生产金币，矿工开采城内钻石；人口与资源决定下一步扩张节奏。', en: 'Farmers generate coins at fields while miners extract diamonds inside the city; population and resources set the pace of expansion.' } },
+        { t: { zh: '招募 · 用转轮塑造军队', en: 'Recruit · shape the army through reels' }, d: { zh: '三转轮决定新单位，科技逐步提升抽取数量、品质、兵种池与锁轮能力，让随机结果可以被长期规划。', en: 'Three reels determine each recruit, while technology improves quantity, quality, the unit pool and reel locking so randomness can be planned around.' } },
+        { t: { zh: '出征 · 把成长带进战场', en: 'Deploy · turn growth into tactics' }, d: { zh: '选择、框选、移动与编队组织军队，穿过战争迷雾和伏击，破坏机关、钢板与城门，最终攻占敌方主城。', en: 'Select, box-select, move and group units, cross fog of war and ambushes, then break the mechanisms, steel plates and gate to capture the enemy capital.' } },
+      ]},
+      { type: 'cards', h: { zh: '当前 Demo 已可体验', en: 'Playable in the current demo' }, items: [
+        { t: { zh: '完整新手教程', en: 'Complete tutorial' }, d: { zh: '从城内发展到城外探索，再到最终攻城，形成一条可从头到尾完成的演示流程。', en: 'A complete playable arc from developing the city to outside exploration and the final siege.' } },
+        { t: { zh: '科技与资源成长', en: 'Technology and resources' }, d: { zh: '金币、钻石、人口与网状科技树共同推进经济、侦察、兵种、阵型和老虎机能力。', en: 'Coins, diamonds, population and a branching tech tree advance the economy, scouting, troops, formations and slot upgrades.' } },
+        { t: { zh: '轻微操 RTS 指挥', en: 'Low-micro RTS control' }, d: { zh: '支持单选、框选、右键命令与即时战略编队，并可跟随单位前往主城外的区域。', en: 'Single and box selection, right-click orders, control groups and a follow camera for expeditions beyond the city.' } },
+        { t: { zh: '动态战场信息', en: 'Readable battlefield state' }, d: { zh: '三态战争迷雾、战术俯视、城防总览与路线预览，让探索和攻城目标保持清晰。', en: 'Three-state fog of war, tactical overview, defence status and route previews keep exploration and siege goals readable.' } },
+      ]},
+      { type: 'cards', h: { zh: '基本操作', en: 'Controls' }, items: [
+        { t: { zh: '鼠标左键', en: 'Left mouse' }, d: { zh: '选择或框选单位。', en: 'Select a unit or drag-select a group.' } },
+        { t: { zh: '鼠标右键', en: 'Right mouse' }, d: { zh: '移动单位或攻击目标。', en: 'Move units or attack a target.' } },
+        { t: { zh: '空格键', en: 'Space' }, d: { zh: '进入老虎机、抽取，或跳过转轮动画。', en: 'Enter the slot machine, spin, or skip the reel animation.' } },
+        { t: { zh: 'T / Esc', en: 'T / Esc' }, d: { zh: '打开科技树 / 打开菜单。', en: 'Open the technology tree / open the menu.' } },
+      ]},
+      { type: 'gallery', h: { zh: '视觉方向', en: 'Visual direction' }, images: [
+        { src: '/games/slot-kingdom/cover.webp', cap: { zh: '主城概念图 · 城邦与老虎机建筑合为同一个视觉核心', en: 'Capital concept · the city and slot-machine building share one visual centre' } },
+      ]},
+      { type: 'text', h: { zh: '原型范围', en: 'Prototype scope' }, body: [
+        { zh: '当前版本用于验证核心玩法，新手教程已经打通经营、招募、探索与攻城闭环；美术、长期科技树平衡、完整电脑玩家和部分正式地图内容仍处于 Demo 阶段。', en: 'This build exists to validate the core loop. Its tutorial already closes the management, recruitment, exploration and siege arc; art, long-term tech balance, full AI opponents and parts of the production map remain at demo stage.' },
+      ]},
+    ],
+  },
+
   abyss: {
     slug: 'abyss',
     accent: '#c8f04a',
