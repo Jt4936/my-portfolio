@@ -6,7 +6,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 const translations = {
   zh: {
     langLabel: 'EN',
-    nav: { about: '关于', work: '作品', skills: '技能', contact: '联系' },
+    nav: { about: '关于', work: '作品', skills: '技能', contact: '联系', assets: 'AI 资源' },
     hero: {
       tag: '// 游戏开发者 & 创意程序员',
       sub: '我设计并独立开发游戏——从核心系统、数值平衡到关卡与战斗手感；也做交互设计与前端。',
@@ -40,6 +40,8 @@ const translations = {
       count: '5 个深度案例',
       cta: '查看案例',
       more: '更多作品',
+      assets: 'AI 资源库',
+      assetsCount: '交互式 3D 预览',
     },
     skills: {
       tag: '// 技术栈',
@@ -89,7 +91,7 @@ const translations = {
   },
   en: {
     langLabel: '中',
-    nav: { about: 'About', work: 'Work', skills: 'Skills', contact: 'Contact' },
+    nav: { about: 'About', work: 'Work', skills: 'Skills', contact: 'Contact', assets: 'AI Assets' },
     hero: {
       tag: '// Game Developer & Creative Coder',
       sub: 'I design and build games solo — from core systems and balancing to levels and combat feel — and craft interactive web experiences too.',
@@ -123,6 +125,8 @@ const translations = {
       count: '5 in-depth case studies',
       cta: 'Case study',
       more: 'More work',
+      assets: 'AI Asset Library',
+      assetsCount: 'Interactive 3D',
     },
     skills: {
       tag: '// Tech Stack',

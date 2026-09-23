@@ -92,7 +92,10 @@ export default function Projects() {
           </svg>
           {t.projects.back}
         </button>
-        <LangToggle />
+        <div className="proj-nav-actions">
+          <button className="assets-nav-btn" onClick={() => navigate('/ai-assets')}>{t.nav.assets}</button>
+          <LangToggle />
+        </div>
       </div>
 
       {/* Fullpage scroll container — hide scrollbar */}

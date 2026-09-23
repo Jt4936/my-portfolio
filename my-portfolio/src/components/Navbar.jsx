@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { useLang } from '../i18n'
 import LangToggle from './LangToggle'
 import './Navbar.css'
 
 export default function Navbar({ activePage, goTo }) {
   const { t } = useLang()
+  const navigate = useNavigate()
   const links = [
     { label: t.nav.about, idx: 1 },
     { label: t.nav.work, idx: 2 },
@@ -37,6 +39,10 @@ export default function Navbar({ activePage, goTo }) {
             </motion.button>
           ))}
         </div>
+        <button className="nav-assets" onClick={() => navigate('/ai-assets')}>
+          <span className="nav-assets-dot" />
+          {t.nav.assets}
+        </button>
         <LangToggle />
       </div>
     </motion.nav>

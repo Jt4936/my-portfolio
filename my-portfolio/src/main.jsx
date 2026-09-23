@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import Projects from './pages/Projects.jsx'
 import GamePage from './pages/GamePage.jsx'
+import AssetsRoute from './pages/AssetsRoute.jsx'
 import { LangProvider } from './i18n.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
           <Route path="/" element={<App />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/game/:slug" element={<GamePage />} />
+          <Route path="/ai-assets" element={<AssetsRoute />} />
         </Routes>
       </BrowserRouter>
     </LangProvider>

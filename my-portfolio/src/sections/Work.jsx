@@ -32,13 +32,19 @@ export default function Work() {
           <div className="section-tag">{t.work.tag}</div>
           <h2 className="work-title">{t.work.title}</h2>
         </div>
-        <button className="work-more" onClick={()=>navigate('/projects', { state:{ from:'home' } })}>
-          <span className="work-more-label">{t.work.more}</span>
-          <span className="work-more-count">{t.work.count}</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+        <div className="work-header-actions">
+          <button className="work-assets" onClick={()=>navigate('/ai-assets')}>
+            <span>{t.work.assets}</span>
+            <small>{t.work.assetsCount}</small>
+          </button>
+          <button className="work-more" onClick={()=>navigate('/projects', { state:{ from:'home' } })}>
+            <span className="work-more-label">{t.work.more}</span>
+            <span className="work-more-count">{t.work.count}</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </motion.div>
 
       <div className="projects-list">

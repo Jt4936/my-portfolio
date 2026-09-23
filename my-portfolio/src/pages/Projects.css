@@ -29,6 +29,22 @@
 }
 .back-btn:hover { color: #c8f04a; border-color: rgba(200,240,74,0.4); }
 
+.proj-nav-actions { display: flex; align-items: center; gap: 12px; }
+.assets-nav-btn {
+  background: rgba(200,240,74,0.08);
+  border: 0.5px solid rgba(200,240,74,0.36);
+  color: #c8f04a;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.assets-nav-btn:hover { background: rgba(200,240,74,0.15); border-color: #c8f04a; }
+
 /* ── Scroll container — hide scrollbar ── */
 .proj-scroll {
   height: 100vh;
@@ -272,6 +288,8 @@
 
 @media (max-width: 768px) {
   .proj-navbar { padding: 14px 20px; }
+  .proj-nav-actions { gap: 8px; }
+  .assets-nav-btn { padding: 7px 10px; font-size: 9px; letter-spacing: 0.08em; }
   .proj-page { padding: 72px 20px 28px; }
   .projects-header { margin-bottom: 14px; }
   .projects-title { font-size: 38px; }
