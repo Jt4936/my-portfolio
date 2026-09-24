@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import CustomCursor from '../components/CustomCursor'
 import LangToggle from '../components/LangToggle'
 import AssetViewer from '../components/AssetViewer'
@@ -105,9 +105,9 @@ function projectKey(asset) {
 
 export default function AssetsPage() {
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
   const { lang } = useLang()
   const copy = COPY[lang]
-  const [filter, setFilter] = useState('all')
   const [selectedId, setSelectedId] = useState(modelAssets[0]?.id ?? null)
 
   useEffect(() => {
@@ -129,6 +129,9 @@ export default function AssetsPage() {
     return [...seen.values()]
   }, [lang])
 
+  const requestedProject = searchParams.get('project')
+  const filter = projects.some((project) => project.key === requestedProject) ? requestedProject : 'all'
+
   const filteredAssets = useMemo(
     () => filter === 'all' ? modelAssets : modelAssets.filter((asset) => projectKey(asset) === filter),
     [filter],
@@ -143,7 +146,10 @@ export default function AssetsPage() {
     : encodeURIComponent(lang === 'zh' ? 'AI 资源使用咨询' : 'AI asset use enquiry')
 
   const chooseFilter = (key) => {
-    setFilter(key)
+    const nextSearchParams = new URLSearchParams(searchParams)
+    if (key === 'all') nextSearchParams.delete('project')
+    else nextSearchParams.set('project', key)
+    setSearchParams(nextSearchParams)
     const first = key === 'all' ? modelAssets[0] : modelAssets.find((asset) => projectKey(asset) === key)
     setSelectedId(first?.id ?? null)
   }
@@ -194,7 +200,7 @@ export default function AssetsPage() {
             </div>
 
             <div className="assets-filters" role="group" aria-label={copy.project}>
-              <button type="button" className={filter === 'all' ? 'active' : ''} onClick={() => chooseFilter('all')}>
+              <button type="button" className={filter === 'all' ? 'active' : ''} aria-pressed={filter === 'all'} onClick={() => chooseFilter('all')}>
                 {copy.all}
               </button>
               {projects.map((project) => (
@@ -202,6 +208,7 @@ export default function AssetsPage() {
                   type="button"
                   key={project.key}
                   className={filter === project.key ? 'active' : ''}
+                  aria-pressed={filter === project.key}
                   onClick={() => chooseFilter(project.key)}
                 >
                   {project.label}
@@ -293,7 +300,9 @@ export default function AssetsPage() {
 
                 {(projectUrl || sourceUrl) && (
                   <div className="asset-related-links">
-                    {projectUrl && <a href={projectUrl}>{copy.viewProject} →</a>}
+                    {projectUrl && (projectUrl.startsWith('/') && !projectUrl.startsWith('//')
+                      ? <Link to={projectUrl}>{copy.viewProject} →</Link>
+                      : <a href={projectUrl}>{copy.viewProject} →</a>)}
                     {sourceUrl && (
                       <a href={sourceUrl} target="_blank" rel="noreferrer">
                         {localize(sourceCode.label, lang, copy.viewSource)} →

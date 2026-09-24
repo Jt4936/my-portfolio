@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import CustomCursor from '../components/CustomCursor'
 import LangToggle from '../components/LangToggle'
 import { useLang } from '../i18n'
@@ -89,7 +89,7 @@ function Block({ block, lang, accent }) {
   switch (block.type) {
     case 'stats':
       return (
-        <div className="hud-stats">
+        <div className={`hud-stats${block.items.length === 6 ? ' hud-stats-six' : ''}`}>
           {block.items.map((s) => (
             <div className="hud-stat" key={L(s.k)}>
               <span className="hud-stat-k">{L(s.k)}</span>
@@ -152,7 +152,7 @@ function Block({ block, lang, accent }) {
       return (
         <section className="gp-section">
           {block.h && <h2 className="gp-h">{L(block.h)}</h2>}
-          <div className="gp-gallery">
+          <div className={`gp-gallery${block.contain ? ' gp-gallery-contain' : ''}`}>
             {block.images.map((im) => (
               <figure className="gp-shot" key={im.src}>
                 <img src={im.src} alt={L(im.cap)} loading="lazy" />
@@ -160,6 +160,7 @@ function Block({ block, lang, accent }) {
               </figure>
             ))}
           </div>
+          {block.note && <p className="gp-note">{L(block.note)}</p>}
         </section>
       )
     case 'video':
@@ -198,6 +199,7 @@ export default function GamePage() {
   const L = (o) => (o ? o[lang] ?? o.zh : '')
   const title = lang === 'zh' ? game.titleZh : game.title
   const tags = lang === 'zh' ? game.tags : game.tagsEn
+  const links = game.links ?? {}
 
   return (
     <div className="gp" style={{ '--accent': game.accent }}>
@@ -220,12 +222,15 @@ export default function GamePage() {
           <h1 className="gp-title">{title}</h1>
           <p className="gp-sub">{L(game.subtitle)}</p>
           <div className="gp-tags">{tags.map((tg) => <span key={tg} className="gp-tag">{tg}</span>)}</div>
-          {(game.links.play || game.links.source) && (
+          {(links.play || links.source || links.assets || links.contact) && (
             <div className="gp-links">
-              {game.links.play && <a className="gp-link primary" href={game.links.play} target="_blank" rel="noreferrer">{lang === 'zh' ? '在线试玩' : 'Play now'} →</a>}
-              {game.links.source && <a className="gp-link" href={game.links.source} target="_blank" rel="noreferrer">GitHub →</a>}
+              {links.play && <a className="gp-link primary" href={links.play} target="_blank" rel="noreferrer">{L(links.playLabel) || (lang === 'zh' ? '在线试玩' : 'Play now')} →</a>}
+              {links.source && <a className="gp-link" href={links.source} target="_blank" rel="noreferrer">{L(links.sourceLabel) || 'GitHub'} →</a>}
+              {links.assets && <Link className="gp-link" to={links.assets}>{lang === 'zh' ? '查看 3D 资源' : 'Explore 3D assets'} →</Link>}
+              {links.contact && <a className={`gp-link${links.play ? '' : ' primary'}`} href={links.contact}>{lang === 'zh' ? '联系我了解 Demo' : 'Contact about the demo'} →</a>}
             </div>
           )}
+          {game.sourceStatus && <p className="gp-source-status">{L(game.sourceStatus)}</p>}
         </motion.div>
       </header>
 

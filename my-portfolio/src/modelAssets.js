@@ -59,8 +59,9 @@ const slotKingdomAssets = [
 
 const timeGardenProject = {
   id: 'time-garden',
-  title: { zh: '《他年灯下》解密 Demo', en: 'Time Garden Puzzle Demo' },
-  status: { zh: 'Unreal Engine 5 解密 Demo · 开发中', en: 'Unreal Engine 5 puzzle demo · In development' },
+  title: { zh: '《他年灯下》解谜 Demo', en: 'Time Garden Puzzle Demo' },
+  status: { zh: 'Unreal Engine 5.7 · Windows Demo', en: 'Unreal Engine 5.7 · Windows demo' },
+  url: '/game/time-garden',
 }
 
 const timeGardenAssets = [

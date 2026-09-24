@@ -2,7 +2,10 @@
 // Each game is a list of typed blocks that GamePage renders.
 // Text fields are { zh, en } so case studies follow the language toggle.
 
+import { timeGarden } from './timeGarden'
+
 export const games = {
+  'time-garden': timeGarden,
   'slot-kingdom': {
     slug: 'slot-kingdom',
     accent: '#e0a43a',
@@ -14,6 +17,7 @@ export const games = {
     cover: '/games/slot-kingdom/cover.webp',
     links: {
       play: 'https://jt4936.itch.io/slot-kingdom-demo',
+      assets: '/ai-assets?project=slot-kingdom',
     },
     blocks: [
       { type: 'stats', items: [
@@ -270,4 +274,4 @@ export const games = {
   },
 }
 
-export const gameList = ['abyss', 'zhongkui', 'farming', 'mecha']
+export const gameList = ['time-garden', 'slot-kingdom', 'abyss', 'zhongkui']
