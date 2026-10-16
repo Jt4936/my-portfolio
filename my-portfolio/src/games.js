@@ -3,8 +3,10 @@
 // Text fields are { zh, en } so case studies follow the language toggle.
 
 import { timeGarden } from './timeGarden'
+import { yunqueLaixin } from './yunqueLaixin'
 
 export const games = {
+  'yunque-laixin': yunqueLaixin,
   'time-garden': timeGarden,
   'slot-kingdom': {
     slug: 'slot-kingdom',
@@ -274,4 +276,4 @@ export const games = {
   },
 }
 
-export const gameList = ['time-garden', 'slot-kingdom', 'abyss', 'zhongkui']
+export const gameList = ['yunque-laixin', 'time-garden', 'slot-kingdom', 'abyss']

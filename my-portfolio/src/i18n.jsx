@@ -37,7 +37,7 @@ const translations = {
       tag: '// 游戏作品',
       title: '我做的游戏',
       viewAll: '查看其他设计项目',
-      count: '6 个深度案例',
+      count: '7 个深度案例',
       cta: '查看案例',
       more: '更多作品',
       assets: 'AI 资源库',
@@ -74,6 +74,7 @@ const translations = {
       categories: { All: '全部', 'UTS Projects': 'UTS 项目', 'Personal Projects': '个人项目', Frontend: '前端', Game: '游戏' },
       // Per-project text keyed by project id (English lives in Projects.jsx data)
       items: {
+        'yunque-laixin': { subtitle: '从山村凡人到入宗修行 · 修仙游戏开发原型', desc: '由我主导方向与迭代、AI 辅助制作的 Unreal Engine 项目。围绕凡人入道的首章任务链，试作剑术、修炼与成长，并持续打磨山村、城市和宗门场景。' },
         'time-garden': { subtitle: '五个年龄，共同寻找一条回家的路', desc: '由我主导设计与迭代、借助 AI 完成制作的第三人称时间因果解谜 Demo。在龟背庭院中追寻线索，让不同时期的自己共同参与一场跨越年岁的救援。' },
         'slot-kingdom': { subtitle: '城邦经营 × 转轮招募 × 轻策略攻城', desc: '一款可在浏览器中游玩的 Unity 6 原型：通过老虎机招募单位、发展城邦，并在完整的新手教程中组织军队完成攻城。' },
         1: { subtitle: 'AI 情绪音乐伴侣', desc: '一款为正经历失业的应届毕业生打造的情绪自适应 AI 音乐伴侣，引导用户走过三段式情绪旅程：承载、释放、升华。' },
@@ -123,7 +124,7 @@ const translations = {
       tag: '// Selected Games',
       title: "Games I've Built",
       viewAll: 'See other design work',
-      count: '6 in-depth case studies',
+      count: '7 in-depth case studies',
       cta: 'Case study',
       more: 'More work',
       assets: 'AI Asset Library',
